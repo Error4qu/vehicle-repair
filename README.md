@@ -1,40 +1,52 @@
-<<<<<<< HEAD
-# vehicle-repair
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Vehicle Repair Service App
 
-## Getting Started
+Full-stack starter project for an online vehicle repair booking service:
 
-First, run the development server:
+- Frontend: Next.js (`/src/app`)
+- Backend: Go API (`/backend`)
+
+## Prerequisites
+
+- Node.js 18+
+- Go 1.22+ ([install guide](https://go.dev/doc/install))
+
+## Run Frontend
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Frontend runs at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run Backend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+go run ./backend/main.go
+```
 
-## Learn More
+Backend runs at [http://localhost:8080](http://localhost:8080).
 
-To learn more about Next.js, take a look at the following resources:
+## API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `GET /health` -> API health check
+- `POST /api/bookings` -> create service booking request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Request body:
 
-## Deploy on Vercel
+```json
+{
+  "fullName": "Madhav Singh",
+  "phone": "9876543210",
+  "vehicleType": "Car",
+  "serviceType": "General Service",
+  "preferredDate": "2026-03-30",
+  "issueDescription": "Engine noise and brake check needed."
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Set frontend API URL (optional if backend runs on localhost:8080):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> c4edb39 (Initial commit from Create Next App)
+```bash
+# .env.local
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080
+```
