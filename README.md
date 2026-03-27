@@ -21,7 +21,7 @@ Frontend runs at [http://localhost:3000](http://localhost:3000).
 ## Run Backend
 
 ```bash
-go run ./backend/main.go
+go run cmd/server/main.go
 ```
 
 Backend runs at [http://localhost:8080](http://localhost:8080).
